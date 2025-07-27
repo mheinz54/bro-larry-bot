@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: local
+    container_name: brolarry
+    env_file:
+      - .env
+
+networks:
+  default:
+    driver: bridge
