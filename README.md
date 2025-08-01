@@ -39,7 +39,7 @@ Choose one of the following installation methods:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/mheinz54/bro-larry-bot.git
-   cd bro-larry
+   cd bro-larry-bot
    ```
 
 2. **Install dependencies**
@@ -71,7 +71,7 @@ Choose one of the following installation methods:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/mheinz54/bro-larry-bot.git
-   cd bro-larry
+   cd bro-larry-bot
    ```
 
 2. **Set up environment variables**
@@ -121,28 +121,31 @@ Choose one of the following installation methods:
 ### Discord Bot Setup
 
 1. **Create a Discord Application**
-   - Go to [Discord Developer Portal](https://discord.com/developers/applications)
+   - Go to the [Discord Developer Portal](https://discord.com/developers/applications)
    - Click "New Application" and give it a name
-   - Go to the "Bot" section and click "Add Bot"
+   - Navigate to the "Bot" section and click "Add Bot"
    - Copy the bot token for your `.env` file
 
-2. **Set Bot Permissions**
-   - In the "Bot" section, enable the following permissions:
+2. **Enable Privileged Gateway Intents**
+   - In the "Bot" section, scroll down to "Privileged Gateway Intents"
+   - Enable:
+     - **Server Members Intent** (for member-related features)
+     - **Message Content Intent** (to read message content for commands)
+
+3. **Invite Bot to Server**
+   - Go to the "OAuth2" > "URL Generator" section
+   - Select the "bot" scope
+   - Under "Bot Permissions", check:
      - Send Messages
      - Use Slash Commands
      - Embed Links
      - Read Message History
-
-3. **Invite Bot to Server**
-   - Go to the "OAuth2" > "URL Generator" section
-   - Select "bot" scope
-   - Select the permissions mentioned above
-   - Use the generated URL to invite the bot to your server
+   - Copy the generated URL and use it to invite the bot to your server
 
 4. **Get Channel ID**
    - Enable Developer Mode in Discord (User Settings > Advanced > Developer Mode)
-   - Right-click on the channel where you want devotionals posted
-   - Click "Copy ID" and use this in your `.env` file
+   - Right-click the channel where you want devotionals posted
+   - Click "Copy ID" and use this value in your `.env` file
 
 ## Configuration
 
@@ -171,7 +174,7 @@ The bot expects devotional data in `resource/devotional_prompts.json` with the f
 ## Project Structure
 
 ```
-bro-larry/
+bro-larry-bot/
 ├── cogs/
 │   ├── daily_devotional.py    # Main devotional functionality
 │   ├── heart.py               # Heart practice and mindfulness commands
